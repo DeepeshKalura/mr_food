@@ -39,11 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _popularRecipeController = PageController(
       initialPage: intialPopularPage,
-      viewportFraction: 0.8,
+      viewportFraction: 1,
     );
     _trendingRecipeController = PageController(
       initialPage: initialTrendingPage,
-      viewportFraction: 0.8,
+      viewportFraction: 1,
     );
     callingLogic();
   }
@@ -70,8 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ? const SplashScreen()
         : SafeArea(
             child: Scaffold(
-              appBar: Appbar(
-                titile: const AppBarTitle(),
+              appBar: AppBar(
+                title: const AppBarTitle(),
               ),
               body: SingleChildScrollView(
                 child: Column(

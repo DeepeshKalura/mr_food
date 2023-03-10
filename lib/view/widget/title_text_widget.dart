@@ -19,6 +19,7 @@ class AppBarTitle extends StatelessWidget {
             fontWeight: FontWeight.w800,
           ),
         ),
+        const SizedBox(width: 4.0),
         Text(
           secondText,
           style: TextStyle(
@@ -30,3 +31,5 @@ class AppBarTitle extends StatelessWidget {
     );
   }
 }
+
+// Shorcut command  for git add and commit
