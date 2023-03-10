@@ -32,4 +32,4 @@ class AppBarTitle extends StatelessWidget {
   }
 }
 
-// Shorcut command  for git add and commit
+// Shorcut command  for git add and git commit together 
