@@ -5,6 +5,7 @@ import 'package:mr_food/controller/model/recipe_model.dart';
 
 import '../../logic/invoke_recipe_logic.dart';
 import '../widget/row_slider_card.dart';
+import '../widget/title_text_widget.dart';
 import 'splash_screen.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -69,10 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ? const SplashScreen()
         : SafeArea(
             child: Scaffold(
+              appBar: Appbar(
+                titile: const AppBarTitle(),
+              ),
               body: SingleChildScrollView(
                 child: Column(
                   children: [
-                    const Text('Find The Best Recipes for cooking'),
                     Container(
                       margin: const EdgeInsets.symmetric(
                           vertical: 20, horizontal: 10),
