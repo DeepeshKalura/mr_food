@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import '../model/ingrident_model.dart';
 import '../model/recepie_list_model.dart';
 import '../model/recipe_model.dart';
 
@@ -91,5 +92,23 @@ class SpoonacularAPI {
       print(e);
     }
     return recepieList;
+  }
+
+  // Implement the ingrident search by ID
+  Future<List<Ingredients>> getIngridentSearchByID(int id) async {
+    List<Ingredients> ingredientsList = [];
+    try {
+      final response = await http.get(Uri.parse(
+          '$_baseUrl/recipes/$id/ingredientWidget.json?apiKey=$_apiKey'));
+      if (response.statusCode == 200) {
+        final json = jsonDecode(response.body);
+        ingredientsList = IngridentModel.fromJson(json).ingredients ?? [];
+      } else {
+        throw Exception('Failed to load recipes');
+      }
+    } catch (e) {
+      print(e);
+    }
+    return ingredientsList;
   }
 }

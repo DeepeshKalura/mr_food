@@ -65,6 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   return GridViewWidget(
                     imageUrl: imageUrl,
                     title: recipe.title ?? 'Error',
+                    id: recipe.id ?? 0,
                   );
                 },
               ),
