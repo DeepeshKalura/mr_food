@@ -63,7 +63,6 @@ class _MainScreenState extends State<MainScreen> {
                     child: TextField(
                       controller: searchTextEditior,
                       onSubmitted: (value) {
-                        // TODO: Implement search
                         Navigator.push(
                           context,
                           MaterialPageRoute(

@@ -38,9 +38,10 @@ class GridViewWidget extends StatelessWidget {
                 onTap: () {
                   print('tapped');
                 },
-                child: const Icon(
-                  Icons.favorite_border,
-                  color: Colors.red,
+                child: Icon(
+                  Icons.favorite_border_outlined,
+                  color: Colors.red[500],
+                  weight: 1,
                   fill: 1,
                 ),
               ),

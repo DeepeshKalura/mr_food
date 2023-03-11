@@ -14,8 +14,8 @@ class SpoonacularAPI {
   static Future<List<Recipe>> searchRecipes(String query) async {
     List<Recipe> recipeList = [];
     try {
-      final response = await http.get(
-          Uri.parse('$_baseUrl/recipes/search?apiKey=$_apiKey&query=$query'));
+      final response = await http.get(Uri.parse(
+          '$_baseUrl/recipes/complexSearch?apiKey=$_apiKey&query=$query'));
 
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);

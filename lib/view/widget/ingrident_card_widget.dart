@@ -21,32 +21,36 @@ class IngridentCard extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
-              child: Image.asset(
+              child: Image.network(
                 ingridentImage,
-                height: 150,
-                width: double.infinity,
                 fit: BoxFit.cover,
               ),
             ),
             const SizedBox(height: 16),
-            Text(
-              ingridentName,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Amount: $amount',
-              style: const TextStyle(
-                fontSize: 18,
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  ingridentName,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Amount: $amount',
+                  style: const TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

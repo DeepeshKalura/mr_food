@@ -49,25 +49,26 @@ class _SearchScreenState extends State<SearchScreen> {
                   secondText: widget.title,
                 ),
               ),
-              body: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 3 / 2.4,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
+              body: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 3 / 2.4,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                  ),
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: recipeList.length,
+                  itemBuilder: (context, index) {
+                    final recipe = recipeList[index];
+                    return GridViewWidget(
+                      imageUrl: recipe.image ?? 'Error',
+                      title: recipe.title ?? 'Error',
+                      id: recipe.id ?? 0,
+                    );
+                  },
                 ),
-                physics: const BouncingScrollPhysics(),
-                itemCount: recipeList.length,
-                itemBuilder: (context, index) {
-                  final recipe = recipeList[index];
-                  String imageUrl = 'https://spoonacular.com/${recipe.image}';
-                  print(recipe.image);
-                  return GridViewWidget(
-                    imageUrl: imageUrl,
-                    title: recipe.title ?? 'Error',
-                    id: recipe.id ?? 0,
-                  );
-                },
               ),
             ),
           );

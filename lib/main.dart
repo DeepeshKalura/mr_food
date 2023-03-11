@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mr_food/view/screen/main_screen.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
+import 'controller/api/hive_api.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  var path = await getApplicationSupportDirectory();
+  HiveApi().intilizingHive(path);
   runApp(const MyApp());
 }
 
