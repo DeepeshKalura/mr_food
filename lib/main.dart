@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
               color: Colors.transparent, elevation: 0, centerTitle: true),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: const MainScreen() //CategoriesScreen() //MyHomePage(),
+        home: const MainScreen() //MyHomePage(),
         );
   }
 }

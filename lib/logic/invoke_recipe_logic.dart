@@ -12,4 +12,10 @@ class InvokingAPI {
 
     return recipeList;
   }
+
+  Future<List<Recipe>> getSearchRecipe(String query) async {
+    final recipeList = await SpoonacularAPI.searchRecipes(query);
+
+    return recipeList;
+  }
 }

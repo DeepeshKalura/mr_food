@@ -8,21 +8,25 @@ class SpoonacularAPI {
   static const String _baseUrl = 'https://api.spoonacular.com';
   static const String _apiKey = '7459fac1747d4870aa1b3e16dfd6036e';
 
-  //TODO: Search Recipes and get Recipe needs to bee fixed
+  //TODO:  get Recipe needs to bee fixed
 
-  // static Future<List<RecepieList>> searchRecipes(String query) async {
-  //   final response = await http.get(
-  //       Uri.parse('$_baseUrl/recipes/search?apiKey=$_apiKey&query=$query'));
+  static Future<List<Recipe>> searchRecipes(String query) async {
+    List<Recipe> recipeList = [];
+    try {
+      final response = await http.get(
+          Uri.parse('$_baseUrl/recipes/search?apiKey=$_apiKey&query=$query'));
 
-  //   if (response.statusCode == 200) {
-  //     final json = jsonDecode(response.body);
-  //     final results = json['results'] as List<dynamic>;
-
-  //     return results.map((result) => RecepieList.fromJson(result)).toList();
-  //   } else {
-  //     throw Exception('Failed to load recipes');
-  //   }
-  // }
+      if (response.statusCode == 200) {
+        final json = jsonDecode(response.body);
+        recipeList = RecepieList.fromJson(json).results ?? [];
+      } else {
+        throw Exception('Failed to load recipes');
+      }
+    } catch (e) {
+      print(e);
+    }
+    return recipeList;
+  }
 
   // static Future<RecepieList> getRecipe(int id) async {
   //   final response = await http
