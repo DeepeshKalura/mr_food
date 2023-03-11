@@ -14,8 +14,12 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
-          appBarTheme: const AppBarTheme(
-              color: Colors.transparent, elevation: 0, centerTitle: true),
+          appBarTheme: AppBarTheme(
+            color: Colors.grey[300],
+            elevation: 0,
+            centerTitle: true,
+            iconTheme: const IconThemeData(color: Colors.red),
+          ),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: const MainScreen() //MyHomePage(),

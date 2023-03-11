@@ -4,6 +4,7 @@ import '../../controller/model/recipe_model.dart';
 import '../../logic/invoke_recipe_logic.dart';
 import '../../view/widget/title_text_widget.dart';
 import '../widget/grid_view_widget.dart';
+import 'search_screen.dart';
 import 'splash_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -63,6 +64,14 @@ class _MainScreenState extends State<MainScreen> {
                       controller: searchTextEditior,
                       onSubmitted: (value) {
                         // TODO: Implement search
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SearchScreen(
+                              title: value,
+                            ),
+                          ),
+                        );
                       },
                       decoration: const InputDecoration(
                         hintText: 'Search',
