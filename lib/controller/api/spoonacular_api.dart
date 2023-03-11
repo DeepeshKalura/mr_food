@@ -41,7 +41,7 @@ class SpoonacularAPI {
     List<Recipe> recipeList = [];
     try {
       final response = await http.get(Uri.parse(
-          '$_baseUrl/recipes/complexSearch?apiKey=$_apiKey&sort=popularity&number=10'));
+          '$_baseUrl/recipes/complexSearch?apiKey=$_apiKey&sort=popularity&number=70&diet=vegetarian&cuisine=american&intolerances=egg'));
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
         recipeList = RecepieList.fromJson(json).results ?? [];
@@ -72,4 +72,20 @@ class SpoonacularAPI {
   }
 
   // Writing a function for breakfast, lunch, dinner, and dessert
+  static Future<List<Recipe>> getBreakfastRecipes() async {
+    List<Recipe> recepieList = [];
+    try {
+      final response = await http.get(Uri.parse(
+          '$_baseUrl/recipes/complexSearch?apiKey=$_apiKey&sort=popularity&number=10&diet=vegetarian&cuisine=american&intolerances=egg'));
+      if (response.statusCode == 200) {
+        final json = jsonDecode(response.body);
+        recepieList = RecepieList.fromJson(json).results ?? [];
+      } else {
+        throw Exception('Failed to load recipes');
+      }
+    } catch (e) {
+      print(e);
+    }
+    return recepieList;
+  }
 }

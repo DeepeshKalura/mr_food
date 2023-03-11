@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../view/widget/categories_card_widget.dart';
+
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
 
@@ -7,48 +9,47 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Text('Categories'),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CategoriesCard extends StatelessWidget {
-  const CategoriesCard(
-      {super.key, required this.title, required this.imageUrl});
-
-  final String title;
-  final String imageUrl;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 8,
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Text(
-              title,
-              style: const TextStyle(
-                fontSize: 24, // set the font size of the text
-                fontWeight: FontWeight.bold, // set the font weight of the text
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Categories',
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w800,
+                  color: Colors.red[900],
+                ),
               ),
-            ),
+              const SizedBox(
+                height: 20,
+              ),
+              const CategoriesCard(
+                title: 'BreakFast',
+              ),
+              const CategoriesCard(
+                title: 'Lunch',
+              ),
+              const CategoriesCard(
+                title: 'Dinner',
+              ),
+              const CategoriesCard(
+                title: 'Drinks',
+              ),
+              const CategoriesCard(
+                title: 'Desserts',
+              ),
+              const CategoriesCard(
+                title: 'Soups',
+              ),
+              const CategoriesCard(
+                title: 'Salads',
+              ),
+            ],
           ),
-          Image.asset(
-            'path/to/$imageUrl',
-            height: 200, // set the height of the image
-            width: double.infinity, // set the width to fill the card
-            fit: BoxFit.cover, // scale the image to fit the space
-          ),
-        ],
+        ),
       ),
     );
   }
