@@ -35,39 +35,43 @@ class SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF5EBD3E),
-              Color(0xFFA7CC5B),
-              Color(0xFFC9D68C),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Scaffold(
+          body: Container(
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 189, 62, 62),
+                  Color.fromARGB(255, 204, 91, 91),
+                  Color.fromARGB(255, 214, 140, 140),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ScaleTransition(
+                  scale: _animation,
+                  child: Image.asset(
+                    'assets/images/img_saly1.png',
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                const Text(
+                  'Food Recipe App',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ScaleTransition(
-              scale: _animation,
-              child: Image.asset(
-                'assets/images/img_saly1.png',
-              ),
-            ),
-            const SizedBox(height: 16.0),
-            const Text(
-              'Food Recipe App',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ],
         ),
       ),
     );

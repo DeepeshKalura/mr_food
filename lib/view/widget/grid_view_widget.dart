@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../controller/model/recipe_model.dart';
-import '../../logic/invoke_favorite_logic.dart';
+// import '../../logic/invoke_favorite_logic.dart';
 import '../screen/recepie_detail_screen.dart';
 
 class GridViewWidget extends StatelessWidget {
-  GridViewWidget({
+  const GridViewWidget({
     super.key,
     required this.imageUrl,
     required this.title,
@@ -16,7 +16,7 @@ class GridViewWidget extends StatelessWidget {
   final String title;
   final int id;
   final Recipe recipe;
-  final invokeFavorite = InvokeFavorite();
+  // final invokeFavorite = InvokeFavorite();
 
   @override
   Widget build(BuildContext context) {

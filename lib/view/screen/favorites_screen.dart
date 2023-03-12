@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../controller/model/recipe_model.dart';
-import '../../logic/invoke_favorite_logic.dart';
+// import '../../logic/invoke_favorite_logic.dart';
 import '../widget/grid_view_widget.dart';
 import '../widget/title_text_widget.dart';
 
@@ -15,7 +15,7 @@ class FavoriteScreen extends StatefulWidget {
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
-  final InvokeFavorite invokeFavorite = InvokeFavorite();
+  // final InvokeFavorite invokeFavorite = InvokeFavorite();
 
   List<Recipe> favoriteList = [];
   var isShowing = false;
@@ -25,7 +25,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   }
 
   callingLogic() async {
-    favoriteList = await invokeFavorite.getData('Recipe');
+    // favoriteList = await invokeFavorite.getData('Recipe');
     setState(() {
       isShowing = true;
     });
