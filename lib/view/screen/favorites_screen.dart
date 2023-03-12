@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mr_food/view/widget/title_text_widget.dart';
 
-// TODO: implement Favorite Screen With Hive
+import '../../controller/model/recipe_model.dart';
+import '../../logic/invoke_favorite_logic.dart';
+import '../widget/grid_view_widget.dart';
+import '../widget/title_text_widget.dart';
+
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({
     super.key,
@@ -12,11 +15,20 @@ class FavoriteScreen extends StatefulWidget {
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
-  var DummyData = [];
+  final InvokeFavorite invokeFavorite = InvokeFavorite();
+
+  List<Recipe> favoriteList = [];
   var isShowing = false;
   @override
   initState() {
     super.initState();
+  }
+
+  callingLogic() async {
+    favoriteList = await invokeFavorite.getData('Recipe');
+    setState(() {
+      isShowing = true;
+    });
   }
 
   @override
@@ -34,30 +46,18 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     firstText: 'Favorites', secondText: 'Recipes'),
               ),
               body: ListView.builder(
-                itemCount: DummyData.length,
+                itemCount: favoriteList.length,
                 itemBuilder: (context, index) {
-                  final movie = DummyData[index];
-                  return DummiestMovieCard(
-                    movie: movie,
+                  final recipe = favoriteList[index];
+                  return GridViewWidget(
+                    imageUrl: recipe.image ?? '',
+                    title: recipe.title ?? '',
+                    id: recipe.id ?? 0,
+                    recipe: recipe,
                   );
                 },
               ),
             ),
           );
-  }
-}
-
-class DummiestMovieCard extends StatelessWidget {
-  final movie;
-
-  const DummiestMovieCard({
-    super.key,
-    required this.movie,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
   }
 }

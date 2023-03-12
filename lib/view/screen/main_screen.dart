@@ -97,6 +97,7 @@ class _MainScreenState extends State<MainScreen> {
                           imageUrl: recipe.image ?? '',
                           title: recipe.title ?? 'Error',
                           id: recipe.id ?? 0,
+                          recipe: recipe,
                         );
                       },
                     ),

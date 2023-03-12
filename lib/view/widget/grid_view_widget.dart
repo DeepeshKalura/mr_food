@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
+import '../../controller/model/recipe_model.dart';
+import '../../logic/invoke_favorite_logic.dart';
 import '../screen/recepie_detail_screen.dart';
 
 class GridViewWidget extends StatelessWidget {
-  const GridViewWidget({
+  GridViewWidget({
     super.key,
     required this.imageUrl,
     required this.title,
     required this.id,
+    required this.recipe,
   });
   final String imageUrl;
   final String title;
   final int id;
+  final Recipe recipe;
+  final invokeFavorite = InvokeFavorite();
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +40,16 @@ class GridViewWidget extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.33,
               ),
               GestureDetector(
-                onTap: () {
-                  print('tapped');
+                onTap: () async {
+                  if (await invokeFavorite.hasKey('Recipe')) {
+                    final list = await invokeFavorite.getData('Recipe');
+                    list.add(recipe);
+                    await invokeFavorite.addData('Recipe', list);
+                  } else {
+                    final list = [];
+                    list.add(recipe);
+                    await invokeFavorite.addData('Recipe', list);
+                  }
                 },
                 child: Icon(
                   Icons.favorite_border_outlined,
