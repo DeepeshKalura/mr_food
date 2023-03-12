@@ -36,21 +36,22 @@ class SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Scaffold(
-          body: Container(
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 189, 62, 62),
-                  Color.fromARGB(255, 204, 91, 91),
-                  Color.fromARGB(255, 214, 140, 140),
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
+      child: Scaffold(
+        body: Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 189, 62, 62),
+                Color.fromARGB(255, 204, 91, 91),
+                Color.fromARGB(255, 214, 140, 140),
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
             ),
+          ),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
