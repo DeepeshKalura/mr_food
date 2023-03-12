@@ -39,25 +39,26 @@ class GridViewWidget extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.33,
               ),
-              GestureDetector(
-                onTap: () async {
-                  if (await invokeFavorite.hasKey('Recipe')) {
-                    final list = await invokeFavorite.getData('Recipe');
-                    list.add(recipe);
-                    await invokeFavorite.addData('Recipe', list);
-                  } else {
-                    final list = [];
-                    list.add(recipe);
-                    await invokeFavorite.addData('Recipe', list);
-                  }
-                },
-                child: Icon(
-                  Icons.favorite_border_outlined,
-                  color: Colors.red[500],
-                  weight: 1,
-                  fill: 1,
-                ),
-              ),
+              // TODO: I will implement this feature later
+              // GestureDetector(
+              //   onTap: () async {
+              //     if (await invokeFavorite.hasKey('Recipe')) {
+              //       final list = await invokeFavorite.getData('Recipe');
+              //       list.add(recipe);
+              //       await invokeFavorite.addData('Recipe', list);
+              //     } else {
+              //       final list = [];
+              //       list.add(recipe);
+              //       await invokeFavorite.addData('Recipe', list);
+              //     }
+              //   },
+              //   child: Icon(
+              //     Icons.favorite_border_outlined,
+              //     color: Colors.red[500],
+              //     weight: 1,
+              //     fill: 1,
+              //   ),
+              // ),
             ],
           ),
         ),
