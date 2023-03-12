@@ -37,27 +37,22 @@ class GridViewWidget extends StatelessWidget {
           trailing: Row(
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.33,
+                width: MediaQuery.of(context).size.width * 0.31,
               ),
               // TODO: I will implement this feature later
-              // GestureDetector(
-              //   onTap: () async {
+              // LikeButton(
+              //   onTap: (isLiked) async {
               //     if (await invokeFavorite.hasKey('Recipe')) {
               //       final list = await invokeFavorite.getData('Recipe');
               //       list.add(recipe);
               //       await invokeFavorite.addData('Recipe', list);
               //     } else {
-              //       final list = [];
+              //       List<Recipe> list = [];
               //       list.add(recipe);
               //       await invokeFavorite.addData('Recipe', list);
               //     }
+              //     return null;
               //   },
-              //   child: Icon(
-              //     Icons.favorite_border_outlined,
-              //     color: Colors.red[500],
-              //     weight: 1,
-              //     fill: 1,
-              //   ),
               // ),
             ],
           ),

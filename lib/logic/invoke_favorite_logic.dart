@@ -1,7 +1,8 @@
 import '../controller/api/hive_api.dart';
+import '../controller/model/recipe_model.dart';
 
 class InvokeFavorite {
-  Future<void> addData(String key, dynamic value) async {
+  Future<void> addData(String key, List<Recipe> value) async {
     SharedApi().addData(key, value);
   }
 
